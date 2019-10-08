@@ -8,7 +8,7 @@ public class Model {
     private ShowHistoryMap showsHistory = new ShowHistoryMap();
     private ShowMap shows = new ShowMap();
 
-    private Theatre show;
+    private Theatre show = new Theatre("showName", 2000, 20);
 
     public Model(Storage storage) {
         storage.loadShows(shows, showsHistory);

@@ -54,7 +54,6 @@ public class MainWindow extends AnchorPane {
         case "delete":
         case "postpone":
         case "edit":
-            display.getChildren().removeAll(display.getChildren());
             showPerformance();
             break;
         case "sell":
@@ -75,10 +74,16 @@ public class MainWindow extends AnchorPane {
     //create new file with the layout of the seats and color coding of it to show available or booked.
     //should have both model.getShow and model.getShows
     private void showSeats() {
+        display.getChildren().removeAll(display.getChildren());
 
+        Theatre show = optix.getModel().getShow();
+
+        display.getChildren().add(DisplaySeats.getShow(show));
     }
 
     private void showPerformance() {
+        display.getChildren().removeAll(display.getChildren());
+
         ShowMap displayShows = optix.getModel().getShows();
 
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
