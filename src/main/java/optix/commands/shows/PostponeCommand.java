@@ -38,7 +38,7 @@ public class PostponeCommand extends Command {
     }
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         String message = "";
         LocalDate today = storage.getToday();
@@ -72,6 +72,8 @@ public class PostponeCommand extends Command {
         } finally {
             ui.setMessage(message);
         }
+
+        return "postpone";
     }
 
     @Override

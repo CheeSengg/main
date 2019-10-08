@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="450.0" style="-fx-border-color: Black;" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="showDetails" prefHeight="126.0" prefWidth="470.0" style="-fx-border-color: grey;">
+         <children>
+            <Label fx:id="showTitle" prefHeight="91.0" prefWidth="332.0" text="Label">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="showDate" prefHeight="91.0" prefWidth="147.0" text="Label">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="statsDisplay" layoutX="10.0" layoutY="52.0" prefHeight="78.0" prefWidth="470.0">
+         <children>
+            <Label fx:id="showRevenue" prefHeight="37.0" prefWidth="250.0" text="Label">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="showCost" prefHeight="38.0" prefWidth="239.0" text="Label">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</fx:root>

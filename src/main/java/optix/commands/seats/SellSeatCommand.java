@@ -39,7 +39,7 @@ public class SellSeatCommand extends Command {
 
     //need to refactor
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         StringBuilder message = new StringBuilder();
         try {
@@ -70,6 +70,7 @@ public class SellSeatCommand extends Command {
             model.setShows(shows);
             ui.setMessage(message.toString());
         }
+        return "sell";
     }
 
     @Override

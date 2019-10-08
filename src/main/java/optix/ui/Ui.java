@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Reads in the input user and
- * returns the response by Optix.
+ * returns the response by optix.Optix.
  */
 public class Ui {
 

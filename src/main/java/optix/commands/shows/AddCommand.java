@@ -36,7 +36,7 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         Theatre theatre = new Theatre(showName, cost, seatBasePrice);
         LocalDate today = storage.getToday();
@@ -60,6 +60,7 @@ public class AddCommand extends Command {
         } catch (OptixInvalidDateException e) {
             ui.setMessage(e.getMessage());
         }
+        return "add";
     }
 
 

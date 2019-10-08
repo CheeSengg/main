@@ -1,3 +1,5 @@
+package optix;
+
 import optix.commands.Command;
 import optix.commons.Model;
 import optix.commons.Storage;
@@ -27,13 +29,13 @@ public class Optix {
     public static void main(String[] args) {
         File currentDir = new File(System.getProperty("user.dir"));
         File filePath = new File(currentDir.toString() + "\\src\\main\\data");
-        new Optix(filePath).run();
+        new Optix(filePath).runCmdLine();
     }
 
     /**
      * To boot up the software.
      */
-    public void run() {
+    private void runCmdLine() {
 
         boolean isExit = false;
         System.out.println(ui.showCommandLine());
@@ -51,6 +53,27 @@ public class Optix {
             }
         }
 
+    }
+
+    public String runGUI(String fullCommand) {
+        String commandWord = "";
+        try {
+            Command c = Parser.parse(fullCommand);
+            commandWord = c.execute(model, ui, storage);
+        } catch (OptixException e) {
+            ui.setMessage(e.getMessage());
+        } finally {
+            System.out.println(ui.showCommandLine());
+        }
+        return commandWord;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public String getResponse() {
+        return ui.getMessage();
     }
 }
 

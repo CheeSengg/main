@@ -16,7 +16,7 @@ public class ListCommand extends Command {
     private static final String MESSAGE_ENTRY = "%1$d. %2$s (on: %3$s)\n";
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         StringBuilder message = new StringBuilder();
         LocalDate today = storage.getToday();
@@ -37,6 +37,7 @@ public class ListCommand extends Command {
         }
 
         ui.setMessage(message.toString());
+        return "list";
     }
 
     @Override

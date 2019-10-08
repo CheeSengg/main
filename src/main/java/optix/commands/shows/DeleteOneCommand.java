@@ -27,7 +27,7 @@ public class DeleteOneCommand extends Command {
 	}
 
 	@Override
-	public void execute(Model model, Ui ui, Storage storage) {
+	public String execute(Model model, Ui ui, Storage storage) {
 		ShowMap shows = model.getShows();
 		StringBuilder message = new StringBuilder();
 
@@ -51,5 +51,6 @@ public class DeleteOneCommand extends Command {
 		} finally {
 			ui.setMessage(message.toString());
 		}
+		return "delete";
 	}
 }

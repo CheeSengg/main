@@ -23,7 +23,7 @@ public class ViewSeatsCommand extends Command {
     }
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         StringBuilder message = new StringBuilder();
         try {
@@ -46,6 +46,8 @@ public class ViewSeatsCommand extends Command {
         } finally {
             ui.setMessage(message.toString());
         }
+
+        return "view";
     }
 
     @Override

@@ -25,7 +25,7 @@ public class ListShowCommand extends Command {
 
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         StringBuilder message = new StringBuilder(String.format(MESSAGE_FOUND_SHOW, showName));
 
@@ -49,6 +49,7 @@ public class ListShowCommand extends Command {
         }
 
         ui.setMessage(message.toString());
+        return "list";
     }
 
     @Override

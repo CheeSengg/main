@@ -2,7 +2,7 @@
 
 == 1. Introduction
 
-Optix is a command line interface for theatre managers. It allows users to add theatre bookings by performance groups to the selection. It also allows users to allocate seats to audience members. Finally, the finances can be tracked and tabulated for accounting.
+optix.Optix is a command line interface for theatre managers. It allows users to add theatre bookings by performance groups to the selection. It also allows users to allocate seats to audience members. Finally, the finances can be tracked and tabulated for accounting.
 
 == 2. Quick Start
 
@@ -116,7 +116,7 @@ Format: `bye`
 == 4. FAQ
 
 *Q*: How do I transfer my data to another computer?
-*A*: Install the app in the other computer and replace the empty data file created with the file that contains the data of your previous Optix folder.
+*A*: Install the app in the other computer and replace the empty data file created with the file that contains the data of your previous optix.Optix folder.
 
 == Command Summary
 

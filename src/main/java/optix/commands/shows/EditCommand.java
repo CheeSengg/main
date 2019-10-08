@@ -30,7 +30,7 @@ public class EditCommand extends Command {
     }
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         String message;
         try {
@@ -53,6 +53,7 @@ public class EditCommand extends Command {
         } catch (OptixInvalidDateException e) {
             ui.setMessage(e.getMessage());
         }
+        return "edit";
     }
 
     @Override

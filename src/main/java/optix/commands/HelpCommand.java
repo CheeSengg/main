@@ -40,7 +40,7 @@ public class HelpCommand extends Command {
     }
 
     @Override
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         try {
             if (command.equals("")) {
                 ui.setMessage(MESSAGE_MENU);
@@ -50,7 +50,7 @@ public class HelpCommand extends Command {
         } catch (OptixException e) {
             ui.setMessage(e.getMessage());
         }
-
+        return "help";
     }
 
     @Override

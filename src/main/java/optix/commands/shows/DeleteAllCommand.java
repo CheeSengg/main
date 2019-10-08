@@ -26,7 +26,7 @@ public class DeleteAllCommand extends Command {
     /*
      * Command that deletes all instances of a specific show.
      */
-    public void execute(Model model, Ui ui, Storage storage) {
+    public String execute(Model model, Ui ui, Storage storage) {
         ShowMap shows = model.getShows();
         StringBuilder message = new StringBuilder();
         ArrayList<String> deletedShows = new ArrayList<>();
@@ -67,5 +67,7 @@ public class DeleteAllCommand extends Command {
 
         model.setShows(shows);
         ui.setMessage(message.toString());
+
+        return "delete";
     }
 }
