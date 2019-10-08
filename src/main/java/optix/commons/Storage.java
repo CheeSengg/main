@@ -40,7 +40,7 @@ public class Storage {
         }
     }
 
-    public void loadShows(ShowMap shows, ShowMap showsGUI, ShowHistoryMap showsHistory) {
+    public void loadShows(ShowMap shows, ShowHistoryMap showsHistory) {
         try {
             FileReader rd = new FileReader(showMapFilePath);
             BufferedReader br = new BufferedReader(rd);
@@ -67,7 +67,6 @@ public class Storage {
                     loadSeat(br, theatre);
 
                     shows.put(date, theatre);
-                    showsGUI.put(date, theatre);
                 }
             }
 

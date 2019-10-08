@@ -2,15 +2,16 @@ package optix.commons;
 
 import optix.commons.model.ShowHistoryMap;
 import optix.commons.model.ShowMap;
+import optix.commons.model.Theatre;
 
 public class Model {
     private ShowHistoryMap showsHistory = new ShowHistoryMap();
     private ShowMap shows = new ShowMap();
 
-    private ShowMap showsGUI = new ShowMap();
+    private Theatre show;
 
     public Model(Storage storage) {
-        storage.loadShows(shows, showsGUI, showsHistory);
+        storage.loadShows(shows, showsHistory);
         storage.loadArchive(showsHistory);
         storage.writeArchive(showsHistory);
     }
@@ -31,11 +32,11 @@ public class Model {
         this.showsHistory = showsHistory;
     }
 
-    public ShowMap getShowsGUI() {
-        return showsGUI;
+    public void setShow(Theatre show) {
+        this.show = show;
     }
 
-    public void setShowsGUI(ShowMap showsGUI) {
-        this.showsGUI = showsGUI;
+    public Theatre getShow() {
+        return show;
     }
 }

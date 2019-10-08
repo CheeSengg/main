@@ -35,7 +35,7 @@ public class MainWindow extends AnchorPane {
     public void setOptix(Optix optix) {
         this.optix = optix;
 
-        ShowMap displayShows = optix.getModel().getShowsGUI();
+        ShowMap displayShows = optix.getModel().getShows();
 
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
             display.getChildren().add(Entry.getEntry(entry.getKey(), entry.getValue()));
@@ -72,12 +72,14 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
     }
 
+    //create new file with the layout of the seats and color coding of it to show available or booked.
+    //should have both model.getShow and model.getShows
     private void showSeats() {
 
     }
 
     private void showPerformance() {
-        ShowMap displayShows = optix.getModel().getShowsGUI();
+        ShowMap displayShows = optix.getModel().getShows();
 
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
             display.getChildren().add(Entry.getEntry(entry.getKey(), entry.getValue()));
