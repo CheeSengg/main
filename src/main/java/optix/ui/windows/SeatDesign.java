@@ -17,6 +17,8 @@ public class SeatDesign extends StackPane {
     @FXML
     private Label seatNumber;
 
+    private boolean choosen;
+
     private Seat seat;
 
     public SeatDesign(int row, int col, Seat seat) {
@@ -31,9 +33,22 @@ public class SeatDesign extends StackPane {
 
         this.seat = seat;
         seatNumber.setText(querySeat(row, col));
+        choosen = false;
 
         if (seat.isBooked()) {
             rectangle.setFill(Color.RED);
+        }
+    }
+
+    @FXML
+    private void setBooking() {
+        if (!seat.isBooked()) {
+            if(!choosen) {
+                rectangle.setFill(Color.GREEN);
+            } else {
+                rectangle.setFill(Color.web("#1d99ca"));
+            }
+            choosen = !choosen;
         }
     }
 

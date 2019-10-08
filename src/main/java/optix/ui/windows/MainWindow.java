@@ -35,7 +35,7 @@ public class MainWindow extends AnchorPane {
     public void setOptix(Optix optix) {
         this.optix = optix;
 
-        ShowMap displayShows = optix.getModel().getShows();
+        ShowMap displayShows = optix.getModel().getShowsGUI();
 
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
             display.getChildren().add(Entry.getEntry(entry.getKey(), entry.getValue()));
@@ -84,7 +84,7 @@ public class MainWindow extends AnchorPane {
     private void showPerformance() {
         display.getChildren().removeAll(display.getChildren());
 
-        ShowMap displayShows = optix.getModel().getShows();
+        ShowMap displayShows = optix.getModel().getShowsGUI();
 
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
             display.getChildren().add(Entry.getEntry(entry.getKey(), entry.getValue()));

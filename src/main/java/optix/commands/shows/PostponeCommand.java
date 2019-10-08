@@ -64,6 +64,7 @@ public class PostponeCommand extends Command {
                     Theatre postponedShow = shows.removeShow(localOldDate);
                     shows.put(localNewDate, postponedShow);
                     model.setShows(shows);
+                    model.setShowsGUI(shows);
                     message = String.format(MESSAGE_SUCCESSFUL, showName, oldDate, newDate);
                 }
             }

@@ -66,6 +66,7 @@ public class DeleteAllCommand extends Command {
         }
 
         model.setShows(shows);
+        model.setShowsGUI(shows);
         ui.setMessage(message.toString());
 
         return "delete";

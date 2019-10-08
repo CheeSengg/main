@@ -36,6 +36,7 @@ public class ListCommand extends Command {
             message = new StringBuilder(MESSAGE_LIST_NOT_FOUND);
         }
 
+        model.setShowsGUI(shows);
         ui.setMessage(message.toString());
         return "list";
     }

@@ -42,6 +42,7 @@ public class DeleteOneCommand extends Command {
 			if (showToDelete != null && showToDelete.hasSameName(showName)) {
 				shows.remove(showLocalDate, showToDelete);
 				model.setShows(shows);
+				model.setShowsGUI(shows);
 				message.append(String.format(MESSAGE_SUCCESSFUL, showName, showDate));
 			} else {
 				message.append(String.format(MESSAGE_UNSUCCESSFUL, showName, showDate));

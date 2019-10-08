@@ -55,6 +55,7 @@ public class AddCommand extends Command {
             } else {
                 shows.put(showLocalDate, theatre);
                 model.setShows(shows);
+                model.setShowsGUI(shows);
                 ui.setMessage(String.format(MESSAGE_SUCCESSFUL, theatre.getShowName(), date));
             }
         } catch (OptixInvalidDateException e) {

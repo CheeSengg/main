@@ -45,6 +45,7 @@ public class EditCommand extends Command {
 
                 shows.replace(localShowDate, show);
                 model.setShows(shows);
+                model.setShowsGUI(shows);
                 message = MESSAGE_UPDATE_SUCCESSFUL + newShowName + ".\n";
             } else {
                 message = MESSAGE_UPDATE_UNSUCCESSFUL;

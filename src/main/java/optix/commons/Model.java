@@ -7,11 +7,12 @@ import optix.commons.model.Theatre;
 public class Model {
     private ShowHistoryMap showsHistory = new ShowHistoryMap();
     private ShowMap shows = new ShowMap();
+    private ShowMap showsGUI = new ShowMap();
 
-    private Theatre show = new Theatre("showName", 2000, 20);
+    private Theatre show;
 
     public Model(Storage storage) {
-        storage.loadShows(shows, showsHistory);
+        storage.loadShows(shows, showsGUI, showsHistory);
         storage.loadArchive(showsHistory);
         storage.writeArchive(showsHistory);
     }
@@ -38,5 +39,13 @@ public class Model {
 
     public Theatre getShow() {
         return show;
+    }
+
+    public void setShowsGUI(ShowMap showsGUI) {
+        this.showsGUI = showsGUI;
+    }
+
+    public ShowMap getShowsGUI() {
+        return showsGUI;
     }
 }
