@@ -4,12 +4,15 @@ import optix.commons.model.ShowHistoryMap;
 import optix.commons.model.ShowMap;
 import optix.commons.model.Theatre;
 
+import java.time.LocalDate;
+
 public class Model {
     private ShowHistoryMap showsHistory = new ShowHistoryMap();
     private ShowMap shows = new ShowMap();
     private ShowMap showsGUI = new ShowMap();
 
     private Theatre show;
+    private LocalDate key;
 
     public Model(Storage storage) {
         storage.loadShows(shows, showsGUI, showsHistory);
@@ -47,5 +50,13 @@ public class Model {
 
     public ShowMap getShowsGUI() {
         return showsGUI;
+    }
+
+    public LocalDate getKey() {
+        return key;
+    }
+
+    public void setKey(LocalDate key) {
+        this.key = key;
     }
 }

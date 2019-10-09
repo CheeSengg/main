@@ -37,6 +37,7 @@ public class ViewSeatsCommand extends Command {
             if (!shows.isEmpty() && shows.containsKey(showLocalDate) && shows.get(showLocalDate).hasSameName(showName)) {
                 Theatre theatre = shows.get(showLocalDate);
                 model.setShow(theatre);
+                model.setKey(showLocalDate);
                 message.append(theatre.getSeatingArrangement());
             } else {
                 message = new StringBuilder("☹ OOPS!!! Sorry the show " + showName + " cannot be found.\n");

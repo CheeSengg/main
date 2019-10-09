@@ -40,20 +40,24 @@ public class MainWindow extends AnchorPane {
         for (Map.Entry<LocalDate, Theatre> entry : displayShows.entrySet()) {
             display.getChildren().add(Entry.getEntry(entry.getKey(), entry.getValue()));
         }
+
+        optixResponse.setWrapText(true);
     }
 
     @FXML
     private void handleUserInput() {
         String commandWord = optix.runGUI(userInput.getText());
 
-        optixResponse.setText(optix.getResponse());
-
         switch (commandWord) {
         case "add":
-        case "list":
         case "delete":
         case "postpone":
         case "edit":
+            optixResponse.setText(optix.getResponse());
+            showPerformance();
+            break;
+        case "list":
+            optixResponse.setText("Here are the list of shows: ");
             showPerformance();
             break;
         case "sell":
@@ -77,6 +81,10 @@ public class MainWindow extends AnchorPane {
         display.getChildren().removeAll(display.getChildren());
 
         Theatre show = optix.getModel().getShow();
+        LocalDate key = optix.getModel().getKey();
+
+        optixResponse.setText("Here is the seating arrangement for the following show "
+                + show.getShowName() + " on " + key.toString() + ":\n");
 
         display.getChildren().add(DisplaySeats.getShow(show));
     }
