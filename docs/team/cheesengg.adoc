@@ -55,7 +55,6 @@ Below is a screenshot of the previous version of our user guide:
 .Old User Guide Format
 image::{imagesDir}/team/cheesengg_UG_Old.png[]
 
-
 Since there was no structure to how the commands were listed in our user guide, I noticed that it is hard for the user to find specific commands to use. I also noticed that as the user guide was not updated constantly after every feature, it posed as a challenge for us when we were trying to update the user guide since the commands were not categorised properly. +
 
 Since each Optix’s command deals with a specific component in the program, I categorised the commands to be representative of the different components that they deal with in the program. +
