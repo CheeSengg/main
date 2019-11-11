@@ -16,6 +16,7 @@ bin/
 # ignore save file
 /src/main/data/archive.txt
 /src/main/data/optix.txt
+/src/main/data/parserPreferences.txt
 
 # ignore log files
 /OptixLogger.*
