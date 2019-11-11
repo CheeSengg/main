@@ -159,17 +159,21 @@ The sections below give more details of each component in `Optix`.
 
 *API* : link:{repoURL}/tree/master/src/main/java/optix/commons[`Model`]
 
-`Model` stores the data used for the App. It contains 3 `ShowMap`.
-
-1. *shows*: All the shows that are scheduled for the future.
-2. *showsHistory*: All the shows that are in the past.
-3. *showsGui*: All the shows that are to be displayed on the `GUI` component.
-
 .Class Diagram of the Model Component
 image::images/devguide/DG_Model_Structure_Diagram.png[width ="600", align="center"]
 
-The ShowMap Class Diagram shown is the structure for all ShowMap with the exception of *showsHistory*.
-For *showsHistory* the multiplicity of Seat is 0 as it is irrelevant.
+`Model`,
+
+* Stores the data used for the App. It contains 3 `ShowMap`.
+
+** *shows*: All the shows that are scheduled for the future.
+** *showsHistory*: All the shows that are in the past.
+** *showsGui*: All the shows that are to be displayed on the `GUI` component.
+
+* Depends on the storage component to store `shows` and `showsHistory`.
+
+[NOTE]
+For *showsHistory*, the multiplicity of `Seat` within `Theatre` is 0 as it is irrelevant.
 
 ==== Storage Component
 
@@ -184,6 +188,7 @@ following app launch. The .txt files are saved in `{currDir}/src/main/data`. The
 2. archive.txt
 
 ==== UI Component
+
 
 *API* : link:{repoURL}/tree/master/src/main/java/optix/ui/Ui.java[`Ui.java`]
 
@@ -216,7 +221,7 @@ are stored under different subpackages. Currently the commands package consists 
 == Implementation
 This section describes some noteworthy details on how certain features are implemented.
 
-=== [Proposed] View Monthly Revenue Feature
+=== View Monthly Revenue Feature
 Allows user to view their profit for a specific month.
 
 ==== Proposed Implementation
@@ -263,17 +268,18 @@ image::images/devguide/DG_ViewMonthly_ActivityDiagram.png[width ="300", align="c
 
 *Aspect: How view-monthly executes*
 
-* Alternative 1 (current choice): Saves the archive shows and current shows separately.
-** Pros: Reduces search time Optix knows which list to search from.
-** Cons: Archive list does not need any methods and certain parameters since it is only a list to store show names and
-revenue. Have to insert dummy values for Archive list since Archive and current list are from the same class and now
-use the same parameters.
+* Alternative 1 (current choice): Obtain the required shows from the current and archive list separately.
+** Pros: 
+Reduces search time if Optix knows which list to search from. +
+Also increases user friendliness since message can be customised depending on whether the show is from the current or archive or both lists.
 
-* Alternative 2: Save archive and current shows together
-** Pros: Archive list and current list will have their own class and reduces dependency.
-** Cons: Certain code needs to be repeated which may be confusing.
+** Cons: More bug prone since there are more conditional statements.
 
-=== [Proposed] Sell Seats Feature
+* Alternative 2: Combine the current and archive list before searching for the shows.
+** Pros: More efficient since the entire list would be sorted.
+** Cons: Message showing the monthly revenue will always be the same, making it less user-friendly.
+
+=== Sell Seats Feature
 Allows user to sell seats for a specific show.
 
 ==== Proposed Implementation
@@ -505,17 +511,11 @@ Learn more about logging link:{loggingBasicsURL}[here].
 :loggingBasicsURL: https://www.loggly.com/ultimate-guide/java-logging-basics/
 
 
-== Testing
-
 == Dev Ops
 
 === Build Automation
 
 See <<UsingGradle#, UsingGradle.adoc>> to learn how to use Gradle for build automation.
-
-=== Continuous Integration
-
-We use https://travis-ci.org/[Travis CI] to perform _Continuous Integration_ on our projects. See <<UsingTravis#, UsingTravis.adoc>> for more details.
 
 === Making a Release
 
